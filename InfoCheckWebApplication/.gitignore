@@ -1,11 +1,4 @@
 .vs/
 node_modules/
 publish/
-git rm -r --cached .vs
-git rm -r --cached node_modules
-git rm -r --cached publish
-git status
-git add .
-git add .
-git commit -m "Added .gitignore and cleaned up files"
-git status
+
