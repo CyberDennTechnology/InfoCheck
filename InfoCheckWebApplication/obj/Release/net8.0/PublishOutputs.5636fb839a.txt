@@ -1,0 +1,12 @@
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\InfoCheckWebApplication.exe
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\appsettings.Development.json
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\appsettings.json
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\x86\leptonica-1.82.0.dll
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\x86\tesseract50.dll
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\x64\leptonica-1.82.0.dll
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\x64\tesseract50.dll
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\InfoCheckWebApplication.dll
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\InfoCheckWebApplication.deps.json
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\InfoCheckWebApplication.runtimeconfig.json
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\InfoCheckWebApplication.pdb
+C:\Users\User\source\repos\InfoCheckWebApplication\publish\Tesseract.dll

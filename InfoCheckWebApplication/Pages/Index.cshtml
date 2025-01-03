@@ -1,0 +1,272 @@
+﻿@page
+@model InfoCheckWeb.Pages.IndexModel
+@{
+    ViewData["Title"] = "InfoCheck - Document Scanner";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - InfoCheckWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="https://www.paypal.com/sdk/js?client-id=AfgkdCelJf5dzsP1rtMQN4hqqOQkTcJsqJ7gZjY8terTFgsDmaLRW-TYB_d2u1F_EbmsJ90otUjhLMgG&vault=true&intent=subscription"></script>
+    <style>
+        body {
+            background: url('@Url.Content("~/images/pic2.png")') center/cover no-repeat fixed;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .blurred {
+            filter: blur(5px);
+            color: #ccc;
+        }
+
+        .important-label {
+            color: gold;
+            font-weight: bold;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+            ul li {
+                margin-bottom: 0.5rem;
+                list-style: none;
+            }
+
+                ul li span {
+                    color: #f8d76a;
+                }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero" style="position: relative; background: black; height: 60vh; color: white;">
+        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
+        <div class="hero-content text-center" style="position: relative; z-index: 2; padding-top: 10vh;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); font-family: 'Playfair Display', serif;">
+                Welcome to <span style="color: #f8d76a;">InfoCheck!</span>
+            </h1>
+            <p class="company-name">Powered by CyberDenn Technology</p>
+            <p style="font-size: 1.1rem; margin-top: 1rem; max-width: 600px; margin: auto;">
+                InfoCheck makes document processing effortless by helping you with:
+            </p>
+            <ul style="list-style-type: none; padding: 0; margin-top: 1.5rem; font-size: 1.1rem; color: white; text-align: left; max-width: 600px; margin: 1.5rem auto;">
+                <li><span>✔</span> Warranty Expiration Dates</li>
+                <li><span>✔</span> Fine Print Clauses</li>
+                <li><span>✔</span> Return Policies</li>
+                <li><span>✔</span> Cancellation Terms</li>
+                <li><span>✔</span> Key Clauses in Contracts</li>
+                <li><span>✔</span> Rental Agreement Details</li>
+                <li><span>✔</span> Travel Booking Information</li>
+                <li><span>✔</span> Tax Form Highlights</li>
+            </ul>
+        </div>
+    </div>
+
+   
+
+    <!-- File Upload and Text Extraction -->
+    <div class="container mt-5">
+        <h2>Upload Your Document</h2>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="UploadedFile" id="fileUpload" accept="image/*" required />
+            <br /><br />
+            <button type="submit" class="btn btn-primary">Extract Text</button>
+        </form>
+
+        <!-- Disclaimer Section -->
+        <p class="mt-3 text-muted" style="font-size: 0.9rem;">
+            <strong>Disclaimer:</strong> InfoCheck does not store your information. All uploaded documents are processed
+            in real-time and automatically deleted after processing to ensure your privacy and data security.
+        </p>
+
+        @if (Model.VisibleDetails != null && Model.VisibleDetails.Any())
+        {
+            <h3 style="color: white;">Visible Details:</h3>
+            <ul>
+                @foreach (var detail in Model.VisibleDetails)
+                {
+                    <li style="color: white;">@detail</li>
+                }
+            </ul>
+        }
+
+        @if (Model.RestrictedDetails != null && Model.RestrictedDetails.Any())
+        {
+            <h3 style="color: white;">Restricted Details (Upgrade to Unlock):</h3>
+            <ul>
+                @foreach (var detail in Model.RestrictedDetails)
+                {
+                    <li class="blurred">
+                        <span class="important-label">Important:</span> Restricted Content
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+
+    <!-- Features Section -->
+    <div class="container mt-5">
+        <h2>Why Choose InfoCheck?</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h3>Quick Extraction</h3>
+                <p>Find key details like expiration dates, claims, and exclusions instantly.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Secure and Private</h3>
+                <p>Your documents are processed securely, ensuring full privacy.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Easy to Use</h3>
+                <p>Simple, intuitive interface for uploading and scanning documents.</p>
+            </div>
+        </div>
+
+        <!-- St. Jude Partnership Section -->
+        <div class="row text-center mt-5">
+            <div class="col-md-12">
+                <img src="~/images/partner5.png" alt="St. Jude Partnership" class="img-fluid" style="max-height: 100px; margin-bottom: 20px;" />
+                <p style="color: white; font-size: 1.2rem;">
+                    <strong>Partnering with St. Jude Children's Research Hospital</strong>
+                </p>
+                <p style="color: white; font-size: 1rem;">
+                    A portion of every InfoCheck subscription goes directly to St. Jude to help support their mission of
+                    treating and curing childhood cancer. By using InfoCheck, you're making a difference!
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Partners Section -->
+    <div class="container text-center mt-5">
+        <h2>Trusted By</h2>
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <img src="~/images/partner1.png" alt="Partner 1" class="img-fluid" style="max-height: 80px;">
+            </div>
+            <div class="col-md-3">
+                <img src="~/images/partner2.png" alt="Partner 2" class="img-fluid" style="max-height: 80px;">
+            </div>
+            <div class="col-md-3">
+                <img src="~/images/partner3.png" alt="Partner 3" class="img-fluid" style="max-height: 80px;">
+            </div>
+            <div class="col-md-3">
+                <img src="~/images/partner4.png" alt="Partner 4" class="img-fluid" style="max-height: 80px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Section -->
+    <div class="container mt-5 text-center">
+        <p>
+            By using InfoCheck, you agree to our
+            <a href="#" data-bs-toggle="modal" data-bs-target="#tosModal">Terms and Conditions</a>.
+        </p>
+    </div>
+
+    <!-- ToS Modal -->
+    <div class="modal fade" id="tosModal" tabindex="-1" aria-labelledby="tosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tosModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: left;">
+                    <p>
+                        Welcome to InfoCheck! By accessing or using our service, you agree to the following terms:
+                    </p>
+                    <ul>
+                        <li>
+                            All documents and information processed by InfoCheck are for personal use only.
+                        </li>
+                        <li>
+                            You agree not to copy, distribute, or exploit any content or information provided
+                            by InfoCheck for commercial purposes.
+                        </li>
+                        <li>
+                            All content is copyrighted, and unauthorized use is strictly prohibited.
+                        </li>
+                        <li>
+                            InfoCheck does not store or retain your documents beyond the time required for processing.
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscription Plans -->
+    <div class="container mt-5">
+        <h2>Subscription Plans</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h3>Free</h3>
+                <p>Basic details extraction</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Premium</h3>
+                <p>Advanced document insights</p>
+                <div id="paypal-button-container-premium"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Pro</h3>
+                <p>Unlimited features and search bar</p>
+                <div id="paypal-button-container-pro"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promo Code Section -->
+    <div class="container mt-5">
+        <h2>Have a Promo Code?</h2>
+        <form method="post" asp-page-handler="PromoCode">
+            <input type="text" name="PromoCode" class="form-control" placeholder="Enter Promo Code" style="max-width: 300px; display: inline-block;" required />
+            <button type="submit" class="btn btn-success ml-2">Apply</button>
+        </form>
+        @if (Model.PromoCodeMessage != null)
+        {
+            <p class="mt-3 text-success">@Model.PromoCodeMessage</p>
+        }
+    </div>
+
+    <!-- PayPal Integration -->
+    <script>
+        paypal.Buttons({
+            style: { color: 'gold', shape: 'rect', label: 'subscribe' },
+            createSubscription: function (data, actions) {
+                return actions.subscription.create({
+                    plan_id: 'P-3XG04598KK779941XM5QUIRQ'
+                });
+            },
+            onApprove: function (data, actions) {
+                alert('Thank you for subscribing to the Premium Plan!');
+            }
+        }).render('#paypal-button-container-premium');
+
+        paypal.Buttons({
+            style: { color: 'blue', shape: 'rect', label: 'subscribe' },
+            createSubscription: function (data, actions) {
+                return actions.subscription.create({
+                    plan_id: 'P-19S79276RV734043TM5QUKNI'
+                });
+            },
+            onApprove: function (data, actions) {
+                alert('Thank you for subscribing to the Pro Plan!');
+            }
+        }).render('#paypal-button-container-pro');
+    </script>
+</body>
+</html>
