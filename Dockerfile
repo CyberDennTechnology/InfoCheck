@@ -10,11 +10,13 @@ WORKDIR /src
 COPY ["InfoCheckWebApplication/InfoCheckWebApplication.csproj", "./"]
 RUN dotnet restore "InfoCheckWebApplication.csproj"
 COPY . .
-RUN dotnet publish "InfoCheckWebApplication.csproj" -c Release -o /app/publish
+RUN rm -rf /src/bin /src/obj
+RUN dotnet publish "InfoCheckWebApplication.csproj" -c Release -o /app/publish/out
 
 # Final stage: runtime image
 FROM base AS final
 WORKDIR /app
-COPY --from=build /app/publish .
+COPY --from=build /app/publish/out .
 ENTRYPOINT ["dotnet", "InfoCheckWebApplication.dll"]
+
 
