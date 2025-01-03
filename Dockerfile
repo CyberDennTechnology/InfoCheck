@@ -17,7 +17,8 @@ RUN dotnet publish "InfoCheckWebApplication.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "InfoCheckWebApplication.dll"]
+ENTRYPOINT ["dotnet", "InfoCheckApp.dll"]
+
 
 
 
