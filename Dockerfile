@@ -7,7 +7,7 @@ EXPOSE 443
 # Build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["InfoCheckWebApplication.csproj", "./"]  # Replace with your actual .csproj file name
+COPY ["InfoCheckWebApplication/InfoCheckWebApplication.csproj", "./"]
 RUN dotnet restore "InfoCheckWebApplication.csproj"
 COPY . .
 RUN dotnet publish "InfoCheckWebApplication.csproj" -c Release -o /app/publish
@@ -16,4 +16,5 @@ RUN dotnet publish "InfoCheckWebApplication.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "InfoCheckWebApplication.dll"]  # Replace with your actual .dll file name
+ENTRYPOINT ["dotnet", "InfoCheckWebApplication.dll"]
+
