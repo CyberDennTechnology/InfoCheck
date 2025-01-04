@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InfoCheckApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76cb84b055219dbf72624f5400e1f1a3841346f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+afda3c58aed85d5076d80d104cbcbe5d93c190a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("InfoCheckApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InfoCheckApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

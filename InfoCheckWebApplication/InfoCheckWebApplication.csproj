@@ -9,6 +9,7 @@
     <OutputType>Exe</OutputType>
     <AssemblyName>InfoCheckApp</AssemblyName>
     <EnableDefaultContentItems>false</EnableDefaultContentItems> <!-- Prevent automatic inclusion -->
+    <PreserveCompilationContext>true</PreserveCompilationContext> <!-- Ensure Razor runtime compilation -->
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,9 +20,12 @@
     <!-- Explicitly include only necessary content -->
     <Content Include="Pages\**\*" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="wwwroot\**\*" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="appsettings.json" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="appsettings.Development.json" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
+
 
 
 
