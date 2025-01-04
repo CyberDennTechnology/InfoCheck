@@ -8,13 +8,23 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <OutputType>Exe</OutputType>
     <AssemblyName>InfoCheckApp</AssemblyName>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems> <!-- Prevent automatic inclusion -->
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Tesseract" Version="5.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- Explicitly include only necessary content -->
+    <Content Include="Pages\**\*" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="wwwroot\**\*" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
+
+
+
 
 
 
