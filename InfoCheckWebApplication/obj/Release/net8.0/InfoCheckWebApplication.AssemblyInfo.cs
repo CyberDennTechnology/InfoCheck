@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InfoCheckApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+afda3c58aed85d5076d80d104cbcbe5d93c190a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51b6578292b67c68357ffab39a072ad553e2e583")]
 [assembly: System.Reflection.AssemblyProductAttribute("InfoCheckApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InfoCheckApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
