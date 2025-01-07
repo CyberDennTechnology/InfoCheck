@@ -8,8 +8,12 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <OutputType>Exe</OutputType>
     <AssemblyName>InfoCheckApp</AssemblyName>
-    <EnableDefaultContentItems>false</EnableDefaultContentItems> <!-- Prevent automatic inclusion -->
-    <PreserveCompilationContext>true</PreserveCompilationContext> <!-- Ensure Razor runtime compilation -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo> <!-- Prevent auto-generated assembly info -->
+    <EnableDefaultContentItems>false</EnableDefaultContentItems> <!-- Explicit content inclusion -->
+    <PreserveCompilationContext>true</PreserveCompilationContext> <!-- For Razor runtime compilation -->
+    <PublishReadyToRun>true</PublishReadyToRun> <!-- Optimize performance for deployment -->
+    <PublishSingleFile>false</PublishSingleFile> <!-- Keep files separated for debugging -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier> <!-- Specify runtime for deployment -->
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,14 +21,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Explicitly include only necessary content -->
+    <!-- Explicitly include necessary content -->
     <Content Include="Pages\**\*" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="wwwroot\**\*" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="appsettings.json" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="appsettings.Development.json" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="*.cshtml" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="*.config" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Exclude unnecessary files from build -->
+    <None Remove="bin\**\*" />
+    <None Remove="obj\**\*" />
   </ItemGroup>
 
 </Project>
+
 
 
 
